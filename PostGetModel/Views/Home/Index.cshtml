@@ -1,0 +1,36 @@
+﻿@model PostGetModel.Models.Pessoa
+@{
+    ViewBag.Title = "Index";
+}
+
+@*
+    Method post, responsavel por encapsular os dados para envio ao servidor.
+    Com ele não aparece na url.
+*@
+
+@using (Html.BeginForm("Lista", "Home", FormMethod.Post))
+{
+    <fieldset>
+        <legend>Pessoa</legend>
+        <div>
+            @Html.LabelFor(l=> l.PessoaId)
+        </div>
+        <div>
+            @Html.EditorFor(l=> l.PessoaId)
+        </div>
+        <div>
+            @Html.LabelFor(l => l.Nome)
+            @Html.ValidationMessageFor(l => l.Nome)
+        </div>
+        <div>
+            @Html.EditorFor(l => l.Nome)
+        </div>
+        <div>
+            @Html.LabelFor(l => l.Twitter)
+        </div>
+        <div>
+            @Html.EditorFor(l => l.Twitter)
+        </div>
+        <p><input type="submit" value="Enviar" /></p>
+    </fieldset>
+}
